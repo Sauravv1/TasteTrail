@@ -24,7 +24,7 @@ const RestaurantCard = (props) => {
           alt={name}
         />
         <div class="absolute bottom-0 rounded-xl left-0 right-0 h-1/3   bg-gradient-to-t from-black to-transparent ">
-          <span className="pl-2 text-start font-serif font-extrabold  text-[#edf5f4]  text-sm">
+          <span className="pl-2 absolute bottom-2 left-0   bg-opacity-50 w-full text-start font-serif font-extrabold  text-[#edf5f4]  text-sm">
             {aggregatedDiscountInfoV3
               ? aggregatedDiscountInfoV3.header +
                 " " +
