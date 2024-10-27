@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import { MENU_API } from "../utils/constants"; // You can keep this if you want to retain the API constant for future use.
-import resList from "../utils/mockData"; // Import your mock data
+import { MENU_API } from "../utils/constants";
 
-const useRestaurantMenu = (resId) => {
+const useRestaurantMenu = (resId)=>{
   const [resInfo, setResInfo] = useState(null);
 
   useEffect(() => {
@@ -10,12 +9,13 @@ const useRestaurantMenu = (resId) => {
   }, []);
 
   const fetchData = async () => {
-    
-    const restaurant = resList.find((res) => res.info.id === resId); 
-    setResInfo(restaurant ? restaurant.info : null); 
-  };
-
-  return resInfo;
+   
+    const data = await fetch(MENU_API + resId); 
+    const json = await data.json();
+    console.log(json);
+  setResInfo(json.data); 
 };
+return resInfo;
+}
 
 export default useRestaurantMenu;
